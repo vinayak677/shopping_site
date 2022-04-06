@@ -5,7 +5,10 @@ import ProductList from "./ProductList";
 
 function Product() {
   const [list, setList] = useState([])
-  const [query, setQuery]=useState("")
+  const [query, setQuery] = useState("")
+  const [searchParam] = useState(["category", "title"]);
+  const [selectedItem, setSelectedItem] = useState("")
+  const [filterList,setFilterList]=useState([])
 
   useEffect(() => {
     fetch(PRODUCT_URL)
@@ -13,28 +16,50 @@ function Product() {
       .then(_data => setList(_data));
   }, [])
 
-  const handleChange=(e)=>{
-    setQuery(e.target.value)
-    const result=list?.filter((_items)=>{
-      return _items?.category?.toLowerCase().includes(query.toLowerCase()) || _items?.title?.toLowerCase()?.includes(query?.toLowerCase())
+  const searchFunction = (list) => {
+    return list?.filter((_items) => {
+      return searchParam.some((newItem) => {
+        return _items[newItem].toString().toLowerCase().indexOf(query.toLowerCase()) > -1
+      })
     })
-    if(result?.length != 0 ){
-      setList(result)
-    }
   }
+
+  const handleChange = (e) => {
+    setQuery(e.target.value)
+  }
+  const FilterData=(option)=>{
+     const newArrray=[...list]
+     let data=[]
+     for( let items of newArrray){
+       if(items?.category === option){
+          data.push(items)          
+       }
+     }
+     setFilterList(data)
+
+  }
+  const handleChangeSelect = (e) => {
+    setSelectedItem(e.target.value)
+    FilterData(e.target.value)
+  }
+
   return (
-    <div className="container">
-      <div className="row" style={{ marginTop:"30px",marginBottom:"20px"}}>
+    <div className="container" style={{ minHeight:"400px"}}>
+      <div className="row" style={{ marginTop: "30px", marginBottom: "20px" }}>
         <div className="col-8">
-          <input type="text" placeholder="Search" value={query} onChange={handleChange}/>
+          <input type="search" placeholder="Search" value={query} onChange={handleChange} />
         </div>
         <div className="col-4">
-          <select>
-            <option>welcome</option>
+          <select value={selectedItem} onChange={handleChangeSelect}>
+            <option value="">select filter by category</option>
+            <option value="men's clothing">men's clothing</option>
+            <option value="women's clothing">women's clothin</option>
+            <option value="jewelery">jewelery</option>
+            <option value="electronics">electronics</option>
           </select>
         </div>
       </div>
-      <ProductList list={list} />
+      <ProductList list={ filterList?.length > 0 ? filterList : list} searchFunction={searchFunction} />
     </div>
   )
 }

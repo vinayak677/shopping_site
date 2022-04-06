@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
-const Card = (props) => {
-  const { id, url, description, catagory_name, route, price } = props
+const   Card = (props) => {
+  const { id, url, description,state, catagory_name, route, price } = props
   return (
-    <Link to={route}>
+    <Link to={route} state={state}>
       <div className="col" key={id} style={{ cursor: "pointer" }} >
         <div className="card">
           <img src={url} className="card-img-top" alt="card" />
@@ -15,6 +15,6 @@ const Card = (props) => {
       </div>
     </Link>
   )
-}
+} 
 
 export default Card
