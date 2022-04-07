@@ -1,5 +1,5 @@
-import Card from '../../../Components/Card'
-import { PRODUCT_ROUTE } from '../../../Constants'
+import Card from '../../../Components/Card';
+import { PRODUCT_ROUTE } from '../../../Constants';
 
 const ProductList = (props) => {
     const { list ,searchFunction} = props

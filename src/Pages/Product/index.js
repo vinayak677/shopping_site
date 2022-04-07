@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { PRODUCT_URL } from "../../Constants";
 import ProductList from "./ProductList";
-
+import '../Product/p_index.css';
 
 function Product() {
   const [list, setList] = useState([])
@@ -44,12 +44,12 @@ function Product() {
   }
 
   return (
-    <div className="container" style={{ minHeight:"400px"}}>
+    <div className="container" style={{ minHeight:"1000px"}}>
       <div className="row" style={{ marginTop: "30px", marginBottom: "20px" }}>
-        <div className="col-8">
+        <div className="col-8" style={{height:'30px'}}>
           <input type="search" placeholder="Search" value={query} onChange={handleChange} />
         </div>
-        <div className="col-4">
+        <div className="col-4" style={{height:"30px"}}>
           <select value={selectedItem} onChange={handleChangeSelect}>
             <option value="">select filter by category</option>
             <option value="men's clothing">men's clothing</option>

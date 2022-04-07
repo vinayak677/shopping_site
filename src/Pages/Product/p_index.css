@@ -1,0 +1,19 @@
+.card-text{
+    color: black;
+}
+.card{
+    height: 430px;
+    width: auto;
+    margin-top: 20px;
+}
+
+
+.card-img-top {
+    width: revert;
+    margin-top: 31px;
+    height: 270px;
+    object-fit: contain;
+}
+.col{
+    height: 400px;
+}

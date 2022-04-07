@@ -20,7 +20,7 @@ function About() {
     }
   }
   return (
-    <div className="container" style={{ minHeight:"400px"}}>
+    <div className="container" style={{ minHeight:"500px"}}>
       <div style={{ textAlign: "center", color: "green" }} className="m-4">
         <h1>G-Shopping</h1>
         <p>Add You details </p>
