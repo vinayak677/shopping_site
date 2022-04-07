@@ -30,11 +30,11 @@ function About() {
         <p style={{color:"green"}}>{successMsg?.length !==0 && successMsg}</p>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">Name</label>
-          <input type="name" value={name} onChange={(e) => setName(e.target.value)} required className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+          <input type="name" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} required className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
         </div>
         <div className="mb-3">
           <label htmlFor="exampleInputPassword1" className="form-label">Email address</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="form-control" id="exampleInputPassword1" />
+          <input type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} required className="form-control" id="exampleInputPassword1" />
         </div>
         <div className=" mb-3">
           <label htmlFor="exampleInputPassword1" className="form-label">Share Your feedback</label>
