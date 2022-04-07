@@ -5,11 +5,13 @@ import { PRODUCT_ROUTE } from "../../../Constants"
 const ProductItem = () => {
   const [currentDetails, setCurrentDetails] = useState({})
   const location = useLocation()
+  console.log(location,"location")
   const data = location?.state
   useEffect(() => {
     setCurrentDetails(data)
   }, [data])
 
+  
   return (
 
 

@@ -8,7 +8,7 @@ const ProductList = (props) => {
         <div>
             <div className="row row-cols-1 row-cols-md-4 g-4">
                 {list?.length === 0 && <h4 style={{ color: "red" }}>Loading...!! Please wait</h4>}
-                {searchFunction(list)?.map((_items) => {
+                {searchFunction?.(list)?.map((_items) => {
                     const { image, title, id, category } = _items
                     return (
                         <Card url={image} id={id} catagory_name={category}

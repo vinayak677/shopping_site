@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PRODUCT_ROUTE} from '../../Constants';
 import Card from '../../Components/Card';
-import './index.css';
+// import './index.css';
 const data = [
   {
     id: "1",
